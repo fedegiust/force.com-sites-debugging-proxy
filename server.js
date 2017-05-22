@@ -1,5 +1,6 @@
 var httpProxy = require('http-proxy');
 var express = require('express');
+console.log(process.env.TARGET);
 var apiProxy = httpProxy.createProxyServer({target: process.env.TARGET, changeOrigin:true});
 apiProxy.on('proxyReq', function(proxyReq, req, res, options) {
   proxyReq.setHeader('Cookie', 'debug_logs=debug_logs,domain=.force.com');
